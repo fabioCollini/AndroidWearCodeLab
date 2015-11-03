@@ -1,7 +1,9 @@
 package it.cosenonjaviste.mywearapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.wearable.activity.ConfirmationActivity;
 import android.view.View;
 
 import com.mariux.teleport.lib.TeleportClient;
@@ -25,6 +27,8 @@ public class MainActivity extends Activity {
                 teleportClient.sendMessage("no", null);
             }
         });
+
+        teleportClient.setOnGetMessageCallback(new MyOnGetMessageCallback());
     }
 
     @Override protected void onStart() {
@@ -35,5 +39,21 @@ public class MainActivity extends Activity {
     @Override protected void onStop() {
         super.onStop();
         teleportClient.disconnect();
+    }
+
+    private class MyOnGetMessageCallback extends TeleportClient.OnGetMessageCallback {
+        @Override public void onCallback(String s) {
+            showConfirmationActivity();
+            teleportClient.setOnGetMessageCallback(new MyOnGetMessageCallback());
+        }
+    }
+
+    private void showConfirmationActivity() {
+        Intent intent = new Intent(this, ConfirmationActivity.class);
+        intent.putExtra(ConfirmationActivity.EXTRA_ANIMATION_TYPE,
+                ConfirmationActivity.SUCCESS_ANIMATION);
+        intent.putExtra(ConfirmationActivity.EXTRA_MESSAGE,
+                getString(R.string.answer_sent));
+        startActivity(intent);
     }
 }

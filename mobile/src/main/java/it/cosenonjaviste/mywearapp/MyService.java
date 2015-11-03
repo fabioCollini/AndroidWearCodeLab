@@ -16,6 +16,7 @@ public class MyService extends TeleportService {
     private class MyOnGetMessageCallback extends OnGetMessageCallback {
         @Override public void onCallback(String s) {
             surveyManager.updateAnswer(s);
+            sendMessage("ok", null);
             setOnGetMessageCallback(new MyOnGetMessageCallback());
         }
     }

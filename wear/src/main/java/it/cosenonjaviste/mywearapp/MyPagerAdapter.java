@@ -9,8 +9,12 @@ public class MyPagerAdapter extends FragmentGridPagerAdapter {
         super(fm);
     }
 
-    @Override public Fragment getFragment(int i, int i1) {
-        return new AnswerFragment();
+    @Override public Fragment getFragment(int row, int column) {
+        if (column == 0) {
+            return new AnswerFragment();
+        } else {
+            return new SurveyDetailFragment();
+        }
     }
 
     @Override public int getRowCount() {
@@ -18,6 +22,6 @@ public class MyPagerAdapter extends FragmentGridPagerAdapter {
     }
 
     @Override public int getColumnCount(int i) {
-        return 1;
+        return 2;
     }
 }

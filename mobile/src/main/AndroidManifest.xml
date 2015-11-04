@@ -7,11 +7,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:name="it.cosenonjaviste.firebaseconnector.SurveyApp"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="it.cosenonjaviste.firebaseconnector.SurveyActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

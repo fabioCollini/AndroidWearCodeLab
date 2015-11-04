@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:textSize="30sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#CCC"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/answer_yes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/answer_background"
+            android:gravity="center"
+            android:text="@string/yes"
+            android:textSize="40sp"/>
+
+        <TextView
+            android:id="@+id/yes_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="16dp"/>
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#CCC"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/answer_no"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/answer_background"
+            android:gravity="center"
+            android:tag="no"
+            android:text="@string/no"
+            android:textSize="40sp"/>
+
+        <TextView
+            android:id="@+id/no_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="16dp"/>
+    </FrameLayout>
+</LinearLayout>
